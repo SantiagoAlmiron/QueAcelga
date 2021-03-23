@@ -23,7 +23,7 @@ password: "123123", email: "sanalmiron@hotmail.com")
 counter = 1
 SABORES.values.each do |sabor|
   puts "Creando producto  #{counter}"
-  product = Product.create(name: "#{sabor}", user_id_id: 1)
+  product = Product.create(name: "#{sabor}", user_id: 1)
   puts "Saving"
   counter += 1  
 end
