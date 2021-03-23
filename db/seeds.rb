@@ -21,9 +21,10 @@ User.create(first_name: "Santiago", las_name: "Almiron", admin: true, phone_numb
 password: "123123", email: "sanalmiron@hotmail.com")
 
 counter = 1
+user = User.find_by(first_name: "Santiago")
 SABORES.values.each do |sabor|
   puts "Creando producto  #{counter}"
-  product = Product.create(name: "#{sabor}", user_id: 1)
+  product = Product.create(name: "#{sabor}", user_id: "#{user.id}")
   puts "Saving"
   counter += 1  
 end
