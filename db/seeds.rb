@@ -17,7 +17,7 @@ Product.destroy_all
 puts "done"
 
 puts "Creating admin user"
-User.create(first_name: "Santiago", las_name: "Almiron", admin: true, phone_number: "+54 2364 030346", direction: "Calle falsa 123",
+User.create(first_name: "Santiago", last_name: "Almiron", admin: true, phone_number: "+54 2364 030346", direction: "Calle falsa 123",
 password: "123123", email: "sanalmiron@hotmail.com")
 
 counter = 1
