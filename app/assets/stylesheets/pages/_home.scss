@@ -1,1 +1,52 @@
-// Specific CSS for your home-page
+// Small devices
+@media(max-width:576px) {
+  .head-sm-card {
+    color: white;
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.233);
+    background-color: #e4c08a;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    
+  }
+
+  .slide {
+    display: none;
+  }
+}
+
+
+// Medium devices
+@media (min-width:577px) and (max-width:768px) {
+  .head-md-card {
+  margin-top: 30px;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 130%;
+  background-color: #e4c08a;
+  margin: 20px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  width: 70vw;
+  }
+}
+
+// Large devices
+@media (min-width:769px) {
+    .head-card {
+    margin-top: 30px;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 130%;
+    background-color: #e4c08a;
+    margin: 20px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    width: 50vw;
+  }
+}
