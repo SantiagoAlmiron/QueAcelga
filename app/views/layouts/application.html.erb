@@ -16,10 +16,10 @@
 
   <body class="bg-white">
     <div class="page-container">
-      <div class="content-wrap">
         <%= render 'shared/navbar' %>
-        <%= yield %>
         <%= render 'shared/flashes' %>
+      <div class="content-wrap">
+        <%= yield %>
       </div>
       <%= render 'shared/footer' %>
     </div>
