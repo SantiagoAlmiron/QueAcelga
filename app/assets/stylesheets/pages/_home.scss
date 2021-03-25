@@ -1,1 +1,131 @@
-// Specific CSS for your home-page
+#send-button {
+  background-color: #e4c08a;
+  padding: 7.5px 60px;
+  border-radius: 100px;
+  border: hidden;
+  margin-bottom: 20px;
+  color: white;
+  font-size: 150%;
+}
+
+#send-button:hover {
+  background-color: #e4c08a;
+  padding: 7.5px 60px;
+  border-radius: 100px;
+  border: hidden;
+  color: rgb(230, 230, 230);
+  font-size: 150%;
+}
+
+#product-card {
+    background-color: #e4c08a;
+    width: 200px;
+    height: 300px;
+    border-radius: 0 0 10px 10px;
+    padding: 0px;
+    font-weight: bold;
+  }
+
+#product-photo {
+  overflow: hidden;
+  height: 150px;
+  border-radius: 0 0 10px 10px;
+} 
+
+#date-field {
+  width: 60%;
+  height: 0%;
+  border-radius: 100px;
+  font-size: 150%;
+  background-color: white;
+}
+
+.plus-and-less-button {
+  user-select: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+
+.plus-and-less-button:hover {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  background-color: rgba(0, 0, 0, 0.349);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.number-place {
+  background-color: #e4c08a7e;
+  width: 60px;
+  height: 20px;
+  border-radius: 50px;
+}
+
+// Small devices
+@media(max-width:576px) {
+  .head-sm-card {
+    color: white;
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.233);
+    background-color: #e4c08a;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    
+  }
+
+  .slide {
+    display: none;
+  }
+}
+
+
+// Medium devices
+@media (min-width:577px) and (max-width:768px) {
+  .head-md-card {
+  margin-top: 30px;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 130%;
+  background-color: #e4c08a;
+  margin: 20px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  width: 70vw;
+  }
+   
+  #product-card {
+
+  }
+}
+
+// Large devices
+@media (min-width:769px) {
+    .head-card {
+    margin-top: 30px;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 130%;
+    background-color: #e4c08a;
+    margin: 20px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    width: 50vw;
+  }
+
+  #product-card {
+
+  }
+}
