@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'products#index'
-  resources :product, only: [ :index ] do
-    resources :order, only: [ :new ]
-  end
+  root to: 'orders#new'
+  resources :order, only: [ :new ]
 end
