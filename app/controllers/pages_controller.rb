@@ -3,6 +3,13 @@ class PagesController < ApplicationController
 
   def home
     @products = Product.all
+    @order = Order.create
+    @amount = Amount.create
+  end
+
+  private
+
+  def order_params
   end
 
 end
