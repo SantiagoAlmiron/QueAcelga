@@ -7,7 +7,7 @@ class AmountsController < ApplicationController
     else
       render :new
     end
-    @amount.save ? redirect_to 
+    @amount.save ? redirect_to root_path : render :new
   end
 
   private
