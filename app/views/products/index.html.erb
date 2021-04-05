@@ -16,6 +16,7 @@
       </div>
     </div>
   <% end %>
+  <%= simple_form_for @amount do |f| %>
   <div class="row d-flex justify-content-center mt-3">
     <% counter = 1 %>
       <% @products.each do |product| %>
@@ -27,6 +28,7 @@
             <div  id="date-field" class="d-flex align-items-center justify-content-between">
               <div class="mr-2"><div id="rest-button" class="plus-and-less-button"><div class="text-black pb-1">-</div></div></div>
               <input id="amount-place" class="number-place border-0" type="number" value="0", min="0" readonly="readonly">
+              <div class="d-none"><%= f.input :amount, label: "cantidades" %></div>
               <div class="ml-2"><div id="plus-button" class="plus-and-less-button"><div class="text-black">+</div></div></div>
             </div>
           </div>
@@ -36,9 +38,10 @@
             </div>
           <% end %>
         </div>
-    <% end %>
+      <% end %>
   </div>
   <div class="d-flex justify-content-center mt-4">
-    <button type="button" id="send-button">¡Encargar!</button>
+    <%= f.submit "¡Encargar!", :class => "send-button" %>
   </div>
+  <% end %>
 </div>
