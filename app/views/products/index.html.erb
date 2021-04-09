@@ -16,6 +16,19 @@
       </div>
     </div>
   <% end %>
+  <div>
+    Pedido actual : 
+    <% if @products_array != nil %>
+      <% @products_array.each do |id| %>
+        <% a_instance = Amount.find_by_id(id) %>
+        <ul>
+          <li>
+            <%= "#{a_instance.amount} de #{a_instance.product.name}" if a_instance != nil %>
+          </li>
+        </ul>  
+      <% end %>
+    <% end %>
+  </div>
   <div class="row d-flex justify-content-center mt-3">
     <% counter = 1 %>
       <% @products.each do |product| %>
