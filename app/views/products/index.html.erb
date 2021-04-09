@@ -24,6 +24,7 @@
         <ul>
           <li>
             <%= "#{a_instance.amount} de #{a_instance.product.name}" if a_instance != nil %>
+            <%= link_to 'Borrar', amount_path(id), method: :delete if a_instance != nil %>
           </li>
         </ul>  
       <% end %>

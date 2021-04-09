@@ -8,7 +8,11 @@ class AmountsController < ApplicationController
     else
       redirect_to root_path
     end
-    
+  end
+
+  def destroy
+    Amount.destroy(params[:id])
+    redirect_to root_path
   end
 
   private
