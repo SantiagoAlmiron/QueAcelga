@@ -19,7 +19,6 @@
   <div>
     Pedido actual : 
     <% if @products_array != nil %>
-    <%= @products_array %>
       <% @products_array.each do |id| %>
         <% a_instance = Amount.find_by_id(id) %>
         <% if a_instance != nil %>  
