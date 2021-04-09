@@ -1,5 +1,6 @@
 class AmountsController < ApplicationController
   after_action :amount_id_saver, only: :create
+  # before_action :clear, only: :create
 
   def create
     @amount = Amount.new(amount_params)
@@ -23,7 +24,6 @@ class AmountsController < ApplicationController
 
   def amount_id_saver
     session[:array] ||= []
-    session[:array].each {|id| session[:array].delete(id) if Amount.find_by_id(id) == nil}
     session[:array] << @amount.id if @amount.id != nil
   end
 

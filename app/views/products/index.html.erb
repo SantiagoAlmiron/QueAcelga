@@ -21,12 +21,14 @@
     <% if @products_array != nil %>
       <% @products_array.each do |id| %>
         <% a_instance = Amount.find_by_id(id) %>
-        <ul>
-          <li>
-            <%= "#{a_instance.amount} de #{a_instance.product.name}" if a_instance != nil %>
-            <%= link_to 'Borrar', amount_path(id), method: :delete if a_instance != nil %>
-          </li>
-        </ul>  
+        <% if a_instance != nil %>  
+          <ul>
+            <li>
+              <%= "#{a_instance.amount} de #{a_instance.product.name}" %>
+              <%= link_to 'Borrar', amount_path(id), method: :delete %>
+            </li>
+          </ul>  
+        <% end %>
       <% end %>
     <% end %>
   </div>
