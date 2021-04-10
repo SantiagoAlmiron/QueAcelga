@@ -1,4 +1,33 @@
-.send-button {
+#cart-container {
+ background-color: #e4c08a;
+ width: 55%;
+ height: auto;
+ margin-top: 32px;
+ margin-bottom: 32px;
+ border-radius: 10px;
+}
+
+.font-style {
+  font-weight: bold;
+  color: white;
+}
+
+.delete-button {
+  padding: 0.5px 2.5px;
+  background-color: rgba(255, 0, 0, 0.575);
+  border-radius: 5px;
+  color: black;
+}
+
+.delete-button:hover {
+  padding: 0.5px 2.5px;
+  background-color: rgba(255, 255, 255, 0.575);
+  border-radius: 5px;
+  color: black;
+  text-decoration: none;
+}
+
+.add-button {
   background-color: #ffffff81;
   padding: 2.5px 20px;
   border-radius: 100px;
@@ -8,13 +37,24 @@
   font-size: 80%;
 }
 
-.send-button:hover {
+.add-button:hover {
   background-color: #ffffff81;
   padding: 2.5px 20px;
   border-radius: 100px;
   border: hidden;
   color: rgba(0, 0, 0, 0.171);
   font-size: 80%;
+}
+
+.send-button {
+   background-color: #e4c08a;
+  padding: 20px 60px;
+  border-radius: 100px;
+  border: hidden;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 125%;
 }
 
 #product-card {
@@ -93,6 +133,13 @@ input::-webkit-inner-spin-button {
   .slide {
     display: none;
   }
+
+  .justify-content-sm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
 }
 
 
@@ -110,10 +157,14 @@ input::-webkit-inner-spin-button {
   justify-content: center;
   width: 70vw;
   }
-   
-  #product-card {
-
+  
+  .justify-content-sm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
+  
+
 }
 
 // Large devices
@@ -131,7 +182,4 @@ input::-webkit-inner-spin-button {
     width: 50vw;
   }
 
-  #product-card {
-
-  }
 }
