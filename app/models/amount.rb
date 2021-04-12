@@ -2,28 +2,21 @@ class Amount < ApplicationRecord
   belongs_to :order, optional: true
   belongs_to :product
 
-  def self.unit_price_for(quantity)
-    if quantity >= 12
-      33
-    elsif quantity >= 8
-      45
-    elsif quantity >= 4
-      60
-    end 
+  def self.price_calculator(quantity)
+    price = 0
+    while quantity > 0
+      if quantity % 12 == 0
+        price += 400 * (quantity / 12).to_i
+        quantity = quantity - 12 * ((quantity / 12).to_i)
+      elsif quantity % 8 == 0
+        price += 300 * (quantity / 8).to_i
+        quantity = quantity - 8 * ((quantity / 8).to_i)
+      elsif quantity % 4 == 0
+        price += 170 * (quantity / 4).to_i
+        quantity = quantity - 4 * ((quantity / 4).to_i)
+      end
+    end
+    price
   end
 
 end
-
-
-# <% while counter > 0 %>
-#         <% if counter % 12 == 0 %>
-#           price += 400 * (counter / 12).to_i
-#           counter = counter - 12 * ((counter / 12).to_i)
-#         <% elsif counter % 8 == 0 %>
-#           price += 250 * (counter / 8).to_i
-#           counter = counter - 8 * ((counter / 8).to_i)
-#         <% elsif counter % 4 == 0 %>
-#           price += 100 * (counter / 4).to_i
-#           counter = counter - 4 * ((counter / 4).to_i)
-#         <% end %>
-#     <% end %>
