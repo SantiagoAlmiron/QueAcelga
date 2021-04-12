@@ -43,10 +43,12 @@
         <% end %>
     </div>
     <div id="cart-container">
-      <p class="text-center p-2 font-style">Pedido actual:</p> 
-      <% if @products_array != nil %>
-        <% @products_array.each do |id| %>
+      <p class="text-center p-2 font-style">Pedido actual:</p>
+      <% counter = 0 %>
+      <% if @amounts_id_array != nil %>
+        <% @amounts_id_array.each do |id| %>
           <% a_instance = Amount.find_by_id(id) %>
+          <% counter += a_instance.amount if a_instance != nil %>
           <% if a_instance != nil %>  
             <ul>
               <li class="font-style">
@@ -59,7 +61,15 @@
       <% end %>
     </div>
   </div>
- <div class="d-flex justify-content-center p-5">
-  <div><%= link_to '¡Encargar!', root_path, :class => "send-button" %></div>
- </div>
+  <% if counter % 4 == 0 && counter != 0 %>
+    <div class="d-flex justify-content-center p-5">
+      <div><%= link_to '¡Encargar!', new_order_path, :class => "send-button" %></div>
+    </div>
+  <% else %>
+  <div class="d-flex justify-content-center">
+    <div class="head-card head-sm-card head-md-card mt-5">
+      ¡Tenes que encargar 4, 8, 12 o un múltiplo!
+    </div>
+  </div>
+  <% end %>
 </div>
