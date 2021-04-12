@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
 
   def new
     @order = Order.new
+    @amounts_id_array = session[:array]
   end
 
   private
