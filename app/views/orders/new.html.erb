@@ -12,18 +12,6 @@
         <% end %>
       <% end %>
     </div>
-    <!-- <% while counter > 0 %>
-      <% if counter % 12 == 0 %>
-        price += 400 * (counter / 12).to_i
-        counter = counter - 12 * ((counter / 12).to_i)
-      <% elsif counter % 8 == 0 %>
-        price += 250 * (counter / 8).to_i
-        counter = counter - 8 * ((counter / 8).to_i)
-      <% elsif counter % 4 == 0 %>
-        price += 100 * (counter / 4).to_i
-        counter = counter - 4 * ((counter / 4).to_i)
-      <% end %>
-    <% end %> -->
-    <p><%= "Total: $#{price}" %></p>
+    <p><%= "Total: $#{counter * Amount.unit_price_for(counter)}" %></p>
   </div>
 </div>
