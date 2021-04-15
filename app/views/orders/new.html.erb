@@ -12,5 +12,9 @@
       <% end %>
     </div>
     <p class="font-style p-1"><%= "Total: $#{Amount.price_calculator(quantity)}" %></p>
+    <%= simple_form_for @order do |f| %>
+      <%= f.input :note, label: "Comentario" %>
+      <%= f.submit %>
+    <% end %>
   </div>
 </div>
