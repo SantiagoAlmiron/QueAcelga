@@ -9,11 +9,27 @@ before_action :amounts_array, only: [:new, :create]
     @order = Order.new(order_params)
     @order.user = current_user
     quantity = 0
-    price = 0
     @amounts_id_array.each do |id| 
       a_instance = Amount.find_by_id(id)
       quantity += a_instance.amount if a_instance != nil
     end 
+    @order.total_price = price_counter(quantity)
+    if @order.save!
+      amount_instances.each do |instance|
+        instance.order_id = @order.id
+        instance.save
+      end
+      session[:array] = []
+      redirect_to root_path
+    else
+      render new_order_path
+    end
+  end
+
+  private
+
+  def price_counter(quantity)
+    price = 0
     while quantity > 0
       if quantity % 12 == 0
         price += 400 * (quantity / 12).to_i
@@ -25,24 +41,19 @@ before_action :amounts_array, only: [:new, :create]
         price += 170 * (quantity / 4).to_i
         quantity = quantity - 4 * ((quantity / 4).to_i)
       end
-      @order.total_price = price
-      @order.date = Date.today 
-      @order.status = "pendiente"
     end
-    if @order.save!
-      @amounts_id_array.each do |id| 
-        a_instance = Amount.find_by_id(id)
-        if a_instance != nil 
-          a_instance.order_id = @order.id
-          redirect_to root_path
-        end
-      end  
-    else
-      render new_order_path
-    end
+    price
   end
-
-  private
+  
+  def amount_instances
+    instances = []
+    @amounts_id_array = session[:array]
+    @amounts_id_array.each do |id| 
+      a_instance = Amount.find_by_id(id)
+      instances << a_instance if a_instance != nil
+    end
+    instances
+  end 
 
   def amounts_array
     @amounts_id_array = session[:array]
