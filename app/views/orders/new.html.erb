@@ -2,28 +2,15 @@
   <div id="confirmation-card">
     <div><h3 class="mt-4 p-4 text-white">¡Revisa tu pedido por favor!</h3></div>
     <div class="border-bottom">
-      <% counter = 0 %>
-      <% price = 0 %>
+      <% quantity = 0 %>
       <% @amounts_id_array.each do |id| %>
         <% a_instance = Amount.find_by_id(id) %>
-        <% counter += a_instance.amount if a_instance != nil %>
+        <% quantity += a_instance.amount if a_instance != nil %>
         <% if a_instance != nil %>
             <p class="font-style pb-1"><%= "#{a_instance.amount} de #{a_instance.product.name}." %></p>
         <% end %>
       <% end %>
     </div>
-    <% while counter > 0 %>
-      <% if counter % 12 == 0 %>
-        price += 400 * (counter / 12).to_i
-        counter = counter - 12 * ((counter / 12).to_i)
-      <% elsif counter % 8 == 0 %>
-        price += 300 * (counter / 8).to_i
-        counter = counter - 8 * ((counter / 8).to_i)
-      <% elsif counter % 4 == 0 %>
-        price += 170 * (counter / 4).to_i
-        counter = counter - 4 * ((counter / 4).to_i)
-      <% end %>
-    <% end %>
-    <p><%= "Total: $#{price}" %></p>
+    <p class="font-style p-1"><%= "Total: $#{Amount.price_calculator(quantity)}" %></p>
   </div>
 </div>
