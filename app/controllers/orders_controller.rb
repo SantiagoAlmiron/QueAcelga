@@ -5,6 +5,9 @@ before_action :amounts_array, only: [:new, :create]
     @order = Order.new
   end
 
+  def confirmation
+  end
+
   def create
     @order = Order.new(order_params)
     @order.user = current_user
@@ -20,7 +23,7 @@ before_action :amounts_array, only: [:new, :create]
         instance.save
       end
       session[:array] = []
-      redirect_to root_path
+      redirect_to confirmation_path
     else
       render new_order_path
     end

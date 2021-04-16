@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :products, only: [:index]
   resources :orders, only: [:new, :create] 
   resources :amounts, only: [:new, :create, :destroy] 
+  get 'confirmation', to: "orders#confirmation"
 end
