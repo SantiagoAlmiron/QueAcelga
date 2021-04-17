@@ -5,6 +5,10 @@ before_action :amounts_array, only: [:new, :create]
     @order = Order.new
   end
 
+  def index
+    @orders = Order.all
+  end
+
   def myorders
     @orders = Order.where(user: current_user.id)
   end
