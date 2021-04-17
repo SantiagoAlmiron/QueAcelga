@@ -1,0 +1,29 @@
+<% if @orders %>
+  <div class="">
+    <% @orders.each do |order| %>
+    <div class="">
+      <div class="d-md-flex justify-content-between align-items-center border-bottom m-4 p-4 text-white" id="order-card">
+        <div class="mb-1">
+          Pedido:
+          <ul class="pl-4">
+            <% order.amounts.each do |instance|%>
+              <li class="">
+                <%= "#{instance.amount} X #{instance.product.name}" %>
+              </li> 
+            <% end %>
+          </ul>
+        </div>
+        <p>Precio total: $<%= order.total_price %></p>
+        <p>Fecha: <%= (order.created_at).strftime("%d/%m/%Y") %></p>
+        <p>Especificaciones: <%= order.note %></p>
+        <p>Estado : <%= order.status %></p>
+        <% if order.status != "aprobado" %>
+          <%= link_to 'Borrar', order_path(order.id), method: :delete, :class => "delete-button" %>
+        <% end %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+<% else %>
+  <div>Parece que no has echo un pedido aún =(</div>
+<% end %>

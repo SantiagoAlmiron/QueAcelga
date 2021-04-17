@@ -5,6 +5,15 @@ before_action :amounts_array, only: [:new, :create]
     @order = Order.new
   end
 
+  def myorders
+    @orders = Order.where(user: current_user.id)
+  end
+
+  def destroy
+    Order.destroy(params[:id])
+    redirect_to myorders_path
+  end
+
   def confirmation
   end
 
