@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   resources :amounts, only: [:new, :create, :destroy] 
   get 'confirmation', to: "orders#confirmation"
   get 'myorders', to: "orders#myorders"
+  post 'conftimateorder', to: "orders#confirmate_order"
+  post 'rejectorder', to: "orders#reject_order"
 end

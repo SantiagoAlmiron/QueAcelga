@@ -5,6 +5,22 @@ before_action :amounts_array, only: [:new, :create]
     @order = Order.new
   end
 
+  def confirmate_order
+    @order = Order.find(params[:format].to_i)
+    @order.status = "aprobado"
+    raise
+    @order.save
+    redirect_to orders_path
+  end
+  
+  def reject_order
+    @order = Order.find(params[:format].to_i)
+    @order.status = "rechazado"
+    raise
+    @order.save
+    redirect_to orders_path
+  end
+
   def index
     @orders = Order.all
   end
@@ -15,7 +31,11 @@ before_action :amounts_array, only: [:new, :create]
 
   def destroy
     Order.destroy(params[:id])
-    redirect_to myorders_path
+    if current_user.admin == false
+      redirect_to myorders_path
+    else
+      redirect_to orders_path
+    end
   end
 
   def confirmation
