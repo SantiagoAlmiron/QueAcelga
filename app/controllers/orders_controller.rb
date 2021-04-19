@@ -8,7 +8,6 @@ before_action :amounts_array, only: [:new, :create]
   def confirmate_order
     @order = Order.find(params[:format].to_i)
     @order.status = "aprobado"
-    raise
     @order.save
     redirect_to orders_path
   end
@@ -16,7 +15,6 @@ before_action :amounts_array, only: [:new, :create]
   def reject_order
     @order = Order.find(params[:format].to_i)
     @order.status = "rechazado"
-    raise
     @order.save
     redirect_to orders_path
   end
