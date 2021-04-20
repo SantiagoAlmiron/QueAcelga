@@ -11,15 +11,21 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <li class="nav-item active">
-          <%= link_to "Precios", "#", class: "nav-links d-flex justify-content-center sm-config" %>
-        </li>
-        <li class="nav-item active">
-          <%= link_to "Nuevo Producto", "#", class: "nav-links d-flex justify-content-center sm-config" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Pedidos", "#", class: "nav-links d-flex justify-content-center sm-config" %>
-        </li>
+        <% if current_user.admin == true %>
+          <li class="nav-item active">
+            <%= link_to "Precios", "#", class: "nav-links d-flex justify-content-center sm-config" %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to "Nuevo Producto", "#", class: "nav-links d-flex justify-content-center sm-config" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Pedidos", orders_path, class: "nav-links d-flex justify-content-center sm-config" %>
+          </li>
+          <% else %>
+          <li>
+            <%= link_to 'Mis Pedidos', myorders_path, class: "nav-links d-flex justify-content-center sm-config" %>
+          </li>
+        <% end %>
         <li class="nav-item">
           <%= link_to "Chau", destroy_user_session_path, method: :delete, class: "nav-links d-flex justify-content-center sm-config" %>
         </li>

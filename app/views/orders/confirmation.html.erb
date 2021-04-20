@@ -1,0 +1,12 @@
+<div class="d-flex justify-content-center align-content-center">
+  <div id="confirmation-card">
+    <h2 class="mt-2 p-4 text-white">¡Pedido Confirmado!</h2>
+    <%= image_tag 'well_done.png', class: "conf-img" %>
+    <div class="text-white p-4">
+      Tu pedido fué enviado y está pendiente de aprobación,
+      podes checkear el estado el pedido yendo a “Mis pedidos”
+      en la parte de arriba 
+    </div>
+    <%= link_to 'Menu Principal', root_path, :class => "button-1" %>
+  </div>
+</div>

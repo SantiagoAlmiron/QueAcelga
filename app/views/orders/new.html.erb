@@ -12,5 +12,12 @@
       <% end %>
     </div>
     <p class="font-style p-1"><%= "Total: $#{Amount.price_calculator(quantity)}" %></p>
+    <%= simple_form_for @order do |f| %>
+    <div class="d-flex justify-content-center">
+      <div class="width-special"><%= f.input :note, :placeholder => "¿Algo que debamos saber?", label: false %></div>
+    </div>
+      <%= link_to 'Volver', root_path, :class => "button-1" %>
+      <%= f.submit "¡Confirmar!", :class => "button-2" %>
+    <% end %>
   </div>
 </div>

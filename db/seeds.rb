@@ -13,6 +13,8 @@ SABORES = {
 
 puts "clearing database"
 User.destroy_all
+Amount.destroy_all
+Order.destroy_all
 Product.destroy_all
 puts "done"
 
