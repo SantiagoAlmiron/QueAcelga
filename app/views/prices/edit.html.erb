@@ -1,7 +1,11 @@
-<h1>Precios</h1>
-<%= simple_form_for [@price] do |f| %>
+<% if current_user.admin == true %>
+  <h1>Precios</h1>
+  <%= simple_form_for [@price] do |f| %>
     <%= f.input :price_4, label: false, placeholder: "#{@price.price_4}" %>
     <%= f.input :price_8, label: false, placeholder: "#{@price.price_8}" %>
     <%= f.input :price_12, label: false, placeholder: "#{@price.price_12}" %>
     <%= f.submit %>
+  <% end %>
+<% else %>
+  <h1>No tienes acceso a esta página</h1>
 <% end %>

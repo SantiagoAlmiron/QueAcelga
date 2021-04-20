@@ -13,7 +13,10 @@
       <% if user_signed_in? %>
         <% if current_user.admin == true %>
           <li class="nav-item active">
-            <%= link_to "Administrar", edit_price_path(Price.first.id), class: "nav-links d-flex justify-content-center sm-config" %>
+            <%= link_to "Precios", edit_price_path(Price.first.id), class: "nav-links d-flex justify-content-center sm-config" %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to "Nuevo Producto", new_product_path, class: "nav-links d-flex justify-content-center sm-config" %>
           </li>
           <li class="nav-item">
             <%= link_to "Pedidos", orders_path, class: "nav-links d-flex justify-content-center sm-config" %>

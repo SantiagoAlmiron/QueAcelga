@@ -9,7 +9,7 @@ class PricesController < ApplicationController
     @price.update(price_params)
     redirect_to edit_price_path
   end
-
+  
   private
 
   def price_params
