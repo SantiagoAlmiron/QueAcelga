@@ -16,6 +16,7 @@ User.destroy_all
 Amount.destroy_all
 Order.destroy_all
 Product.destroy_all
+Price.destroy_all
 puts "done"
 
 puts "Creating admin user"
@@ -25,10 +26,11 @@ password: "123123", email: "sanalmiron@hotmail.com")
 counter = 1
 user = User.find_by(first_name: "Santiago")
 SABORES.values.each do |sabor|
-  puts "Creando producto  #{counter}"
+  puts "Creating Products  #{counter}"
   product = Product.create(name: "#{sabor}", user_id: "#{user.id}")
   puts "Saving"
   counter += 1  
 end
 
-# "https://unsplash.com/s/photos/comida#{counter}?orientation=squarish" Esto es para despues para poder agregarle las fotos
+puts "Creating Price Model"
+Price.create(price_4: 170, price_8: 300, price_12: 400)
