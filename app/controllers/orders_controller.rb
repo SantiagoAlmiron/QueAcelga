@@ -11,7 +11,7 @@ before_action :amounts_array, only: [:new, :create]
     @order.save
     redirect_to orders_path
   end
-  
+
   def reject_order
     @order = Order.find(params[:format].to_i)
     @order.status = "rechazado"
@@ -36,7 +36,7 @@ before_action :amounts_array, only: [:new, :create]
     end
   end
 
-  def confirmation
+  def confirmate_delete
   end
 
   def create
@@ -66,13 +66,13 @@ before_action :amounts_array, only: [:new, :create]
     price = 0
     while quantity > 0
       if quantity % 12 == 0
-        price += 400 * (quantity / 12).to_i
+        price += Price.first.price_12 * (quantity / 12).to_i
         quantity = quantity - 12 * ((quantity / 12).to_i)
       elsif quantity % 8 == 0
-        price += 300 * (quantity / 8).to_i
+        price += Price.first.price_8 * (quantity / 8).to_i
         quantity = quantity - 8 * ((quantity / 8).to_i)
       elsif quantity % 4 == 0
-        price += 170 * (quantity / 4).to_i
+        price += Price.first.price_4 * (quantity / 4).to_i
         quantity = quantity - 4 * ((quantity / 4).to_i)
       end
     end

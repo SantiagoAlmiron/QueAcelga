@@ -7,7 +7,7 @@
         <% a_instance = Amount.find_by_id(id) %>
         <% quantity += a_instance.amount if a_instance != nil %>
         <% if a_instance != nil %>
-            <p class="font-style pb-1"><%= "#{a_instance.amount} de #{a_instance.product.name}." %></p>
+          <p class="font-style pb-1"><%= "#{a_instance.amount} de #{a_instance.product.name}." %></p>
         <% end %>
       <% end %>
     </div>

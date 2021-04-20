@@ -8,11 +8,11 @@
   <% else %>
     <div class="d-flex justify-content-center">
       <div class="head-card head-sm-card head-md-card">
-        <div class="border-bottom">Pack x4 $170</div>
+        <div class="border-bottom">Pack x4 $<%= Price.first.price_4 %></div>
         <div class="slide mx-3">|</div>
-        <div class="border-bottom">Pack x8 $300</div>
+        <div class="border-bottom">Pack x8 $<%= Price.first.price_8 %></div>
         <div class="slide mx-3">|</div>
-        <div class="border-bottom">Pack x12 $400</div>
+        <div class="border-bottom">Pack x12 $<%= Price.first.price_12 %></div>
       </div>
     </div>
   <% end %>
