@@ -1,4 +1,3 @@
-require "open-uri"
 
 puts "clearing database"
 User.destroy_all

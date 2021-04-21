@@ -1,6 +1,10 @@
-<h1>Producto Nuevo</h1>
+<% if current_user.admin == true %>  
+  <h1>Producto Nuevo</h1>
   <%= simple_form_for @product  do |f| %>
     <%= f.input :name, label: false, placeholder: "Nombre del producto" %>
     <%= f.input :photo, as: :file %>
     <%= f.submit %>
   <% end %>
+<% else %>
+  <h1>No tenes autorización para ver esta página.</h1>
+<% end %>
