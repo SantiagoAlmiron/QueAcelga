@@ -35,7 +35,9 @@
               <div class="d-none"><%= f.input :product_id, label: "product_id" %></div>
               <div class="d-flex justify-content-center mt-4">
                 <%= f.submit "Agregar", :class => "add-button" %>
-                <%= link_to  "borrar", product_path(product.id), method: :delete %>
+                <% if current_user.admin == true %>
+                  <%= link_to  "borrar", product_path(product.id), method: :delete, :class => "delete-button ml-3" %>
+                <% end %>
               </div>
             <% end %>
           </div>
