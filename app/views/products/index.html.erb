@@ -22,7 +22,11 @@
         <% @products.each do |product| %>
           <div class="col-lg-4 col-md-4 col-xs-1 m-3 shadow" id="product-card">
             <% counter += 1 %>
-            <div id="product-photo"><%= image_tag "https://source.unsplash.com/1600x900/?hamburguer?#{counter}" %></div>
+            <% if product.photo != nil %>
+              <%= cl_image_tag product.photo.key, height: 150, width: 240, crop: :fill %>
+            <% else %>
+              <div id="product-photo"><%= image_tag "https://source.unsplash.com/1600x900/?hamburguer?#{counter}" %></div>
+            <% end %>
             <div class="text-white d-flex justify-content-center p-3"><%= product.name %></div>
             <div class="d-flex justify-content-center">
               <div  id="date-field" class="d-flex align-items-center justify-content-between">
