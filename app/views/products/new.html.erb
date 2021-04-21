@@ -1,10 +1,14 @@
-<% if current_user.admin == true %>  
-  <h1>Producto Nuevo</h1>
-  <%= simple_form_for @product  do |f| %>
-    <%= f.input :name, label: false, placeholder: "Nombre del producto" %>
-    <%= f.input :photo, as: :file %>
-    <%= f.submit %>
-  <% end %>
+<% if current_user.admin == true %>
+<div class="container standar-card d-flex align-items-center jusitfy-content-center mt-3">
+  <div>
+    <h1 class="text-white text-center font-weight-bold">Producto Nuevo</h1>
+    <%= simple_form_for @product  do |f| %>
+      <%= f.input :name, label: false, placeholder: "Nombre del producto" %>
+      <%= f.input :photo , as: :file, :label => false %>
+      <%= f.submit "Crear", :class => "button-2" %>
+    <% end %>
+  </div>
+</div> 
 <% else %>
   <h1>No tenes autorización para ver esta página.</h1>
 <% end %>
