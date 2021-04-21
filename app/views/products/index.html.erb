@@ -23,7 +23,7 @@
           <div class="col-lg-4 col-md-4 col-xs-1 m-3 shadow" id="product-card">
             <% counter += 1 %>
             <% if product.photo != nil %>
-              <%= cl_image_tag product.photo.key, height: 150, width: 240, crop: :fill %>
+              <%= cl_image_tag product.photo.key, id: 'product-photo' %>
             <% else %>
               <div id="product-photo"><%= image_tag "https://source.unsplash.com/1600x900/?hamburguer?#{counter}" %></div>
             <% end %>
