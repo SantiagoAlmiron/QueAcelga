@@ -5,7 +5,7 @@
     <%= simple_form_for @product  do |f| %>
       <%= f.input :name, label: false, placeholder: "Nombre del producto" %>
       <div>
-        <%= f.input :photo , as: :file, :label => false %>
+        <%= f.input :photo , as: :file, :label => false, input_html: { class: 'button-2' } %>
         <%= f.submit "Crear", :class => "button-2" %>
       </div>
     <% end %>

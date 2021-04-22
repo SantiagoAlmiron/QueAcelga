@@ -1,36 +1,45 @@
-<h2>Sign up</h2>
+<div class="container d-flex registration-card p-4">
+  <div>
+    <h2 class="text-white pb-3">¡Gracias por Sumarte!</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :first_name, label: false, :placeholder => "Nombre" %>
-    <%= f.input :last_name, label: false, :placeholder => "Apellido" %>
-    <%= f.input :direction, label: false, :placeholder => "Dirección" %>
-    <%= f.input :phone_number, label: false, :placeholder => "+54 2364 12131415" %>
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" },
-                label: false,
-                :placeholder => "email@hotmail.com"%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} caracteres mínimo" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" },
-                label: false,
-                :placeholder => "Contraseña"%>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" },
-                label: false,
-                :placeholder => "confirmación de contraseña"%>
-    
+      <div class="form-inputs">
+        <%= f.input :first_name, label: false, :placeholder => "Nombre" %>
+        <%= f.input :last_name, label: false, :placeholder => "Apellido" %>
+        <%= f.input :direction, label: false, :placeholder => "Dirección" %>
+        <%= f.input :phone_number, label: false, :placeholder => "+54 2364 12131415" %>
+        <%= f.input :email,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "email" },
+                    label: false,
+                    :placeholder => "email@hotmail.com"%>
+        <%= f.input :password,
+                    required: true,
+                    hint: ("#{@minimum_password_length} caracteres mínimo" if @minimum_password_length),
+                    input_html: { autocomplete: "new-password" },
+                    label: false,
+                    :placeholder => "Contraseña"%>
+        <%= f.input :password_confirmation,
+                    required: true,
+                    input_html: { autocomplete: "new-password" },
+                    label: false,
+                    :placeholder => "Confirmación de contraseña"%>
+      </div>
+
+      <div class="form-actions d-flex justify-content-center">
+        <%= f.button :submit, "Crear", :class => "button-2" %>
+      </div>
+    <% end %>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+  <div class="registration-rigth-buttons d-block">
+    <div><%= image_tag 'registration.jpeg', class: "registration-img" %></div>
+    <p class="text-white text-center pt-4">¿Ya tenes cuenta?</p>
+    <div class="d-flex justify-content-center">
+      <div class=""><%= render "devise/shared/links" %></div>
+    </div>
   </div>
-<% end %>
+</div>
 
-<%= render "devise/shared/links" %>
