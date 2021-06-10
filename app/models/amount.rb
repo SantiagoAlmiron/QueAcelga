@@ -1,6 +1,6 @@
 class Amount < ApplicationRecord
   belongs_to :order, optional: true
-  belongs_to :product
+  belongs_to :product, dependent: :destroy
 
   def self.price_calculator(quantity)
     price = 0

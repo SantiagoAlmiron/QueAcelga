@@ -10,4 +10,8 @@ Rails.application.routes.draw do
   get 'myorders', to: "orders#myorders"
   post 'conftimateorder', to: "orders#confirmate_order"
   post 'rejectorder', to: "orders#reject_order"
+  mount Blazer::Engine, at: "blazer"
+  # authenticate :user, ->(user) { user.admin? } do
+  #   mount Blazer::Engine, at: "/admin/blazer"
+  # end
 end

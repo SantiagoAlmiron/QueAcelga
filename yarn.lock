@@ -1480,6 +1480,11 @@ bindings@^1.5.0:
   dependencies:
     file-uri-to-path "1.0.0"
 
+blazer@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/blazer/-/blazer-1.0.0.tgz#cb3c3df0ad3dbd21af3d06206dbe2f3406ba3cb5"
+  integrity sha1-yzw98K09vSGvPQYgbb4vNAa6PLU=
+
 block-stream@*:
   version "0.0.9"
   resolved "https://registry.yarnpkg.com/block-stream/-/block-stream-0.0.9.tgz#13ebfe778a03205cfe03751481ebb4b3300c126a"

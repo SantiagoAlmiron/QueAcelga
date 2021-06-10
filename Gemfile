@@ -22,6 +22,8 @@ gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'cloudinary', '~> 1.16.0'
+# Use this for share metrics, read more on https://github.com/ankane/blazer
+gem 'blazer'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

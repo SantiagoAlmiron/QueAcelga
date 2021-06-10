@@ -4,6 +4,7 @@ class ProductsController < ApplicationController
     @products = Product.all
     @amount = Amount.new
     @amounts_id_array = session[:array]
+    @query = Blazer::Query.find(6)
   end
 
   def new

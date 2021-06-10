@@ -29,4 +29,10 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   amountCounter();
+  runQuery(data, function (data) {
+    $("#chart-<%= query.id %>").html(data)
+    $("#chart-<%= query.id %> table").stupidtable(stupidtableCustomSettings)
+  }, function (message) {
+    $("#chart-<%= query.id %>").addClass("query-error").html(message)
+  });
 });
