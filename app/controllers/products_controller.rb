@@ -4,7 +4,13 @@ class ProductsController < ApplicationController
     @products = Product.all
     @amount = Amount.new
     @amounts_id_array = session[:array]
-    @query = Blazer::Query.find(6)
+    first_query = Blazer::Query.first
+    if first_query.nil?
+      @query = nil
+    else
+      @query = Blazer::Query.find(first_query.id)
+      @test = ActiveRecord::Base.connection.execute(@query.statement)
+    end
   end
 
   def new

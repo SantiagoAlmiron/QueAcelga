@@ -1,3 +1,4 @@
+
 <title>Hola</title>
 <div class="container">
   <% if user_signed_in? && current_user.admin == true %>
@@ -75,5 +76,24 @@
   </div>
   <% end %>
   <!--<iframe src="http://localhost:3000/blazer" frameborder="0" class="w-100 height-test"></iframe> -->
-  <%= render "queries/query", query: @query %>
+  <!-- <%= render "queries/query", query: @query %> -->
 </div>
+<table class="table">
+  <thead>
+    <tr>
+      <% titles = @test.first.keys %>
+      <% titles.each do |title| %>
+        <th scope="col"><%= title %></th>
+      <% end %>
+    </tr>
+  </thead>
+  <% @test.each do |hash| %>
+    <tbody>
+      <tr>
+        <% hash.each do |array| %>
+          <td><%= array.second %></td>
+        <% end %>
+      </tr>
+    </tbody>
+  <% end %>
+</table>

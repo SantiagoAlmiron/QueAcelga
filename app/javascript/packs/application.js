@@ -21,6 +21,7 @@ ActiveStorage.start()
 // External imports
 import "bootstrap";
 import { amountCounter } from "../components/counter"
+import { runQuery } from "../components/runquery"
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -29,10 +30,5 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   amountCounter();
-  runQuery(data, function (data) {
-    $("#chart-<%= query.id %>").html(data)
-    $("#chart-<%= query.id %> table").stupidtable(stupidtableCustomSettings)
-  }, function (message) {
-    $("#chart-<%= query.id %>").addClass("query-error").html(message)
-  });
+  runQuery(); 
 });
